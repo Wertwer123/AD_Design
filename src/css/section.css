@@ -1,0 +1,44 @@
+.adSection
+{
+    background: black;
+    height: 1000px;
+    border: solid;
+    border-bottom: 2px;
+    border-color: whitesmoke;
+}
+
+.adSectionOverlayFade
+{
+    position: relative;
+    background: green;
+    width: 100%;
+    height: 100%;
+    
+    
+}
+
+.adSectionOverlayFade.hidden
+{
+    animation: fadeOut 1.0s ease-in;
+    opacity: 0;
+}
+
+.adSectionImage
+{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+
+@keyframes fadeOut
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+}

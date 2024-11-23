@@ -1,0 +1,40 @@
+.heroSection
+{
+    height: 6000px;   
+}
+
+.heroSection div
+{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.heroSectionHeader
+{
+    font-size: 90px;
+    position: absolute;
+    transform-origin: center;
+    left: 50%; /* Move 50% from the left */
+    top: 25%;
+    transform: translateX(-50%);
+    color: black;
+}
+
+.heroSectionSubHeader
+{
+    font-size: 65px;
+    position: absolute;
+    transform-origin: center;
+    left: 55%; /* Move 50% from the left */
+    top: 32%;
+    transform: rotateZ(-5deg) translateX(-43%);
+    color: bisque;
+}
+
+.heroSectionVideo
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
