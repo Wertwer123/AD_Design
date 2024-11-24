@@ -1,24 +1,61 @@
 .adSection
 {
-    background: black;
-    height: 1000px;
-    border: solid;
-    border-bottom: 2px;
-    border-color: whitesmoke;
+    height: 3000px;
+}
+
+.adSection div
+{
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.adSection video
+{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    z-index: 0;
 }
 
 .adSectionOverlayFade
 {
-    position: relative;
-    background: green;
+    position: absolute;
+    object-fit: cover;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    
-    
+    z-index: 1;
+}
+
+.adSectionLogo
+{
+    position: absolute;
+    transform-origin: center;
+    left: 0%;
+    top: 0%;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 200px;
+    z-index: 2;
+    opacity: 0;
+}
+
+.adSectionLogo.seen
+{
+    opacity: 1;
+    animation: logoAnim 1s ease-out;
 }
 
 .adSectionOverlayFade.hidden
 {
+    position: absolute;
     animation: fadeOut 1.0s ease-in;
     opacity: 0;
 }
@@ -41,4 +78,19 @@
         opacity: 0;
     }
 
+}
+
+@keyframes logoAnim
+{
+    0%
+    {
+        opacity: 1;
+        left: 50%;
+        top: 50%;
+    }
+    100%
+    {
+        left: 0%;
+        top: 0%;
+    }
 }

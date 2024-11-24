@@ -16,8 +16,14 @@ const onScroll = () =>
     const progress = heroSection.clientHeight - window.innerHeight;
 
     let percentage = distance / progress;
-    percentage = Math.max(0, percentage);
-    percentage = Math.min(percentage, 1);
+    
+    if(percentage >= 0.99){
+        percentage = 0.99;
+    }
+
+    else if(percentage <= 0){
+        percentage = 0;
+    }
 
     if(heroSectionVideo.duration > 0){
         heroSectionVideo.currentTime = heroSectionVideo.duration * percentage;

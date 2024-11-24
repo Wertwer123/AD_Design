@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     height: 100vh;
+    width: 100vw;
 }
 
 .heroSectionHeader
@@ -17,8 +18,11 @@
     transform-origin: center;
     left: 50%; /* Move 50% from the left */
     top: 25%;
+    min-width: 600px;
+    min-height: 100px;
     transform: translateX(-50%);
-    color: black;
+    color: #000000;
+    z-index: 1;
 }
 
 .heroSectionSubHeader
@@ -26,10 +30,12 @@
     font-size: 65px;
     position: absolute;
     transform-origin: center;
+    min-width: 600px;
     left: 55%; /* Move 50% from the left */
     top: 32%;
     transform: rotateZ(-5deg) translateX(-43%);
     color: bisque;
+    z-index: 1;
 }
 
 .heroSectionVideo
