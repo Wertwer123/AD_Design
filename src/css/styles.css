@@ -1,0 +1,159 @@
+.heroSection
+{
+    height: 12000px;  
+    width: 100%; 
+}
+
+.heroSection div
+{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.heroSectionHeader
+{
+    font-size: 90px;
+    position: absolute;
+    transform-origin: center;
+    left: 50%; /* Move 50% from the left */
+    top: 25%;
+    min-width: 600px;
+    min-height: 100px;
+    transform: translateX(-50%);
+    color: #000000;
+    z-index: 1;
+}
+
+.heroSectionSubHeader
+{
+    font-size: 65px;
+    position: absolute;
+    transform-origin: center;
+    min-width: 600px;
+    left: 55%; /* Move 50% from the left */
+    top: 32%;
+    transform: rotateZ(-5deg) translateX(-43%);
+    color: bisque;
+    z-index: 1;
+}
+
+.heroSectionVideo
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.section
+{
+    position: relative;
+    height: 400vh;
+    width: 100%;
+}
+
+.section div
+{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: last baseline;
+}
+
+.section div img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    opacity: 0;
+    z-index: 2000;
+    animation: fade-Out linear;
+    animation-timeline: view();
+    animation-range-start: 0%;
+    animation-range-end: 25%;
+}
+
+.section div div video
+{
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.storySlideShow
+{
+    position: absolute;
+    display: inline-flex;
+    overflow-x: hidden;
+    bottom: 0;
+    left: 50%;
+}
+.storyText
+{
+    position: absolute;
+    right: 0%;
+    font-size: 4rem;
+    opacity: 0;
+    color: white;
+}
+
+.storyText.shown
+{
+    right: 50%;
+    opacity: 1;
+    transform: translateX(50%);
+    animation: fade-in-right 0.3s linear;
+}
+
+.storyText.hidden
+{
+    opacity: 0;
+    right: 100%;
+    animation: fade-out-left 0.3s linear;
+}
+
+
+@keyframes fade-Out
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-right
+{
+    0%
+    {
+        opacity: 0;
+        right: 0%;
+    }
+    100%
+    {
+        opacity: 1;
+        right: 50%;
+    }
+}
+
+@keyframes fade-out-left
+{
+    0%
+    {
+        opacity: 1;
+        right: 50%;
+    }
+    100%
+    {
+        opacity: 0;
+        right: 100%;
+    }
+}
