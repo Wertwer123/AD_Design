@@ -1,3 +1,5 @@
+import { entries } from "lodash";
+
 //Fading logic for fading out the overlay image of a section
 const fadeSections = document.querySelectorAll(".adSectionOverlayFade");
 
@@ -19,8 +21,8 @@ const observer = new IntersectionObserver((entries, observer) => {
 
   //logic for animating the logo from center to top left on become visible
   const logos = document.querySelectorAll(".adSectionLogo");
-console.log(logos);
-  const logoObserver = new IntersectionObserver((entries, observer) => {
+
+const logoObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         // Add the 'visible' class to trigger the fade-in animation
@@ -32,6 +34,6 @@ console.log(logos);
     });
   }, { threshold: 0.3 }); 
 
-  logos.forEach(section => {
-    logoObserver.observe(section);
+    logos.forEach(section => {
+      logoObserver.observe(section);
   });

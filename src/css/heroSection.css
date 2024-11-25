@@ -1,6 +1,6 @@
 .heroSection
 {
-    height: 6000px;   
+    height: 12000px;   
 }
 
 .heroSection div
@@ -8,7 +8,7 @@
     position: sticky;
     top: 0;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
 }
 
 .heroSectionHeader

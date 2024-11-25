@@ -1,9 +1,17 @@
-.adSection
+html
 {
-    height: 3000px;
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
-.adSection div
+.adSection
+{
+    height: 400vh;
+    width: 100%;
+    position: relative;
+}
+
+.stickyDiv
 {
     position: sticky;
     top: 0;
@@ -17,8 +25,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    left: 0;
-    top: 0;
     z-index: 0;
 }
 
@@ -67,11 +73,138 @@
     top: 10%;
 }
 
+.adSectionStory
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.adSectionStory div
+{
+    display: flex;
+    height: 100vh;
+    align-items: last baseline;
+    justify-content: center;
+    text-align: left;
+    color: white;
+}
+
+.adSectionStory div div
+{
+    display: block;
+    position: sticky;
+    opacity: 0;
+    bottom: 0;
+    width: fit-content;
+    height: fit-content;
+}
+
+.adSectionStoryFirstText
+{
+    animation: fadeInLeft linear;
+    animation-timeline: view();
+    animation-range-start: 15%;
+    animation-range-end: 100%;
+}
+
+.adsectionStorySecondText
+{
+    animation: fadeInRight linear;
+    animation-timeline: view();
+    animation-range-start: 15%;
+    animation-range-end: 100%;
+}
+
+.adSectionStoryText
+{
+   font-weight: bold;
+}
+
+.adSectionSubTextItem
+{
+    margin-top: -10%;
+}
+
+@media (min-width: 100px) {
+    h1, h2, h3, p {
+        font-size: 3.0rem;
+    }
+  }
+
+@media (min-width: 768px) {
+    h1, h2, h3, p {
+        font-size: 4.25rem;
+    }
+  }
+@media (min-width: 1024px) {
+    h1, h2, h3, p {
+      font-size: 6.0rem;
+    }
+}  
+
+@media (min-width: 100px) {
+    h4{
+      font-size: 1.0rem;
+    }
+  }
+
+@media (min-width: 768px) {
+    h4 {
+      font-size: 2.25rem;
+    }
+  }
+@media (min-width: 1024px) {
+    h4{
+      font-size: 5.0rem;
+    }
+} 
+
 @keyframes fadeOut
 {
     0%
     {
         opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+}
+
+@keyframes fadeInLeft
+{
+    0%
+    {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    50%
+    {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+}
+
+@keyframes fadeInRight
+{
+    0%
+    {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    50%
+    {
+        opacity: 1;
+        transform: translateX(0%);
     }
     100%
     {
