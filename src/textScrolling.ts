@@ -23,22 +23,31 @@ function showCarouselElement(index: number, direction: number, carousel: HTMLEle
     index = clamp(index, 0, carousel.children.length - 1);
     
     //Scrolling to the left
-    if(index + direction > carousel.children.length - 1 || index + direction < 0){
-        console.log("heyho overshot")
-        return;
-    }
+   
 
     carousel.children[index].classList.remove("hidden");
     carousel.children[index].classList.add("shown");
-    carousel.children[index + direction].classList.remove("shown");
-    carousel.children[index +direction].classList.add("hidden");
+    if(index - direction > carousel.children.length - 1 || index - direction < 0){
+        console.log("heyho overshot")
+        return;
+    }
+    carousel.children[index - direction].classList.remove("shown");
+    carousel.children[index - direction].classList.add("hidden");
     
 
 }
 
+function hideCarouselElement(index: number, carousel: HTMLElement)
+{
+    index = clamp(index, 0, carousel.children.length - 1);
+    
+    carousel.children[index].classList.remove("shown");
+    carousel.children[index].classList.add("hidden");
+}
+
 slideShows.forEach((slideShow) => {
     if(!slideShowData.has(slideShow)){
-        slideShowData.set(slideShow, {percentage: 0, previousPercentage: 0, currentIndex: 4});
+        slideShowData.set(slideShow, {percentage: 0, previousPercentage: 0, currentIndex: -1});
     }
 });
     
@@ -62,48 +71,42 @@ window.addEventListener('scroll', (event)=>{
             continue;
         }
 
+        var offset = 0;
         var sectionElement = carousel.parentElement.parentElement.parentElement;
-        var distance = window.scrollY - sectionElement.offsetTop;
-        const progress = sectionElement.clientHeight - window.innerHeight;
+        var distance = window.scrollY - (sectionElement.offsetTop + offset);
+        const progress = (sectionElement.clientHeight -offset) - window.innerHeight;
         const percentage = distance / progress;
         const data = slideShowData.get(slideShows[i]);
+        var percentagePerElement = (100 / carousel.children.length) / 100;
 
         data.previousPercentage = data.percentage; // Update previous distance
         data.percentage = percentage;
         data.percentage = clamp(percentage, 0, 1);
-    
-        if(currentDirection > 0){
-            if(percentage > 0.80 && data.previousPercentage < 0.80){
-                showCarouselElement(--data.currentIndex, currentDirection, carousel);
-                console.log("showing text 5")
+
+        var percentageThreshold = 0.0;
+
+        for(var i = 0; i < carousel.children.length; i++){
+           
+            if(currentDirection > 0){
+               
+                if(data.percentage >= percentageThreshold && data.currentIndex < i){
+                    console.log("jo wtf")
+                    data.currentIndex = i;
+                    showCarouselElement(data.currentIndex, currentDirection, carousel);
+                    break;
+                   
+                }
+                percentageThreshold += percentagePerElement;
             }
-            else if(percentage > 0.60 && data.previousPercentage < 0.60){
-                showCarouselElement(--data.currentIndex, currentDirection, carousel);
-                console.log("showing text 4")
-            }
-            else if(percentage > 0.40 && data.previousPercentage < 0.40){
-                showCarouselElement(--data.currentIndex, currentDirection, carousel);
-                console.log("showing text 3")
-            }
-            else if(percentage > 0.20 && data.previousPercentage < 0.20){
-                showCarouselElement(--data.currentIndex, currentDirection, carousel);
-                console.log("showing text 2")
+            else if (currentDirection < 0){
+                percentageThreshold += percentagePerElement;
+                if(data.percentage <= percentageThreshold && data.currentIndex > i){
+                    
+                    data.currentIndex = i;
+                    showCarouselElement(data.currentIndex, currentDirection, carousel);
+                    break;
+                }
             }
         }
-        else{
-          if(percentage < 0.80 && data.previousPercentage > 0.80){
-            showCarouselElement(++data.currentIndex, currentDirection, carousel);
-          }
-          else if(percentage < 0.60 && data.previousPercentage > 0.60){
-            showCarouselElement(++data.currentIndex, currentDirection, carousel);
-          }
-          else if(percentage < 0.40 && data.previousPercentage > 0.40){
-            showCarouselElement(++data.currentIndex, currentDirection, carousel);
-          }
-          else if(percentage < 0.20 && data.previousPercentage > 0.20){
-            showCarouselElement(++data.currentIndex, currentDirection, carousel);
-          }
-        }
-       
     }
 });

@@ -1,3 +1,13 @@
+html
+{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+p, h1,h2,h3,h4, h5
+{
+    margin: 0;
+}
+
 .heroSection
 {
     height: 12000px;  
@@ -46,14 +56,27 @@
     object-fit: cover;
 }
 
+.adSectionLogo
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 144px;
+}
+.adSectionLogo.seen
+{
+    animation: move-upper-left-corner 2s linear;
+}
+
 .section
 {
     position: relative;
-    height: 400vh;
+    height: 600vh;
     width: 100%;
 }
 
-.section div
+.sectionContainer
 {
     position: sticky;
     top: 0;
@@ -61,21 +84,6 @@
     height: 100vh;
     justify-content: center;
     align-items: last baseline;
-}
-
-.section div img
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    opacity: 0;
-    z-index: 2000;
-    animation: fade-Out linear;
-    animation-timeline: view();
-    animation-range-start: 0%;
-    animation-range-end: 25%;
 }
 
 .section div div video
@@ -88,21 +96,29 @@
 .storySlideShow
 {
     position: absolute;
-    display: inline-flex;
     overflow-x: hidden;
-    bottom: 0;
-    left: 50%;
+    width: 100%;
+    height: 500px;
+    bottom: 15%;
 }
-.storyText
+.storyElement
 {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    min-width: fit-content;
+    white-space: nowrap;
+    text-align: left;
+    gap: -5px;
     right: 0%;
+    bottom: 0;
     font-size: 4rem;
     opacity: 0;
     color: white;
 }
 
-.storyText.shown
+.storyElement.shown
 {
     right: 50%;
     opacity: 1;
@@ -110,10 +126,10 @@
     animation: fade-in-right 0.3s linear;
 }
 
-.storyText.hidden
+.storyElement.hidden
 {
     opacity: 0;
-    right: 100%;
+    right: 50%;
     animation: fade-out-left 0.3s linear;
 }
 
@@ -129,7 +145,19 @@
         opacity: 0;
     }
 }
-
+@keyframes move-upper-left-corner
+{
+    0%
+    {
+        left: 50%;
+        top: 50%;
+    }
+    100%
+    {
+        left: 0;
+        right: 0;
+    }
+}
 @keyframes fade-in-right
 {
     0%
