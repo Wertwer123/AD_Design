@@ -5,10 +5,6 @@ import './heroSectionVideoScrubbing';
 import './visibleHandler';
 import './assets/stock.png';
 import './assets/DesignDays_Logo_turkis.png';
-import './textScrolling'
-
-import AOS from "aos";
-import 'aos/dist/aos.css';
-
-// Initialize AOS
-AOS.init();
+import './textScrolling';
+import './assets/SaxophoneGuy.jpg';
+import './assets/Bühne.jpg';

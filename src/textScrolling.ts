@@ -5,7 +5,7 @@ import { clamp } from "lodash";
 var scrollDelta = 0;
 var scrollYAmount = 0;
 
-
+console.log("init");
 //also stop scrolling until we reached that threshhold
 const slideShowData = new Map();
 const slideShows  = document.querySelectorAll(".storySlideShow");
@@ -90,7 +90,6 @@ window.addEventListener('scroll', (event)=>{
             if(currentDirection > 0){
                
                 if(data.percentage >= percentageThreshold && data.currentIndex < i){
-                    console.log("jo wtf")
                     data.currentIndex = i;
                     showCarouselElement(data.currentIndex, currentDirection, carousel);
                     break;

@@ -2,6 +2,7 @@ html
 {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    background-color: black;
 }
 p, h1,h2,h3,h4, h5
 {
@@ -59,21 +60,26 @@ p, h1,h2,h3,h4, h5
 .adSectionLogo
 {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 300px;
-    height: 144px;
+    left: 5%;
+    top: 5%;
+    width: 175px;
+    height: 114px;
+    z-index: 20;
 }
 .adSectionLogo.seen
 {
-    animation: move-upper-left-corner 2s linear;
+    animation: fade-in 2s linear;
 }
 
 .section
 {
+    margin-bottom: 20px;
+    border-bottom: solid;
+    border-color: whitesmoke;
     position: relative;
     height: 600vh;
     width: 100%;
+    background-color: #000000;
 }
 
 .sectionContainer
@@ -86,11 +92,22 @@ p, h1,h2,h3,h4, h5
     align-items: last baseline;
 }
 
-.section div div video
+.sectionContentContainer
 {
+    position: relative;
     height: 100vh;
     width: 100%;
+}
+
+.section div div video
+{
+    height: 100%;
+    width: 100%;
     object-fit: cover;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
 }
 
 .storySlideShow
@@ -133,18 +150,50 @@ p, h1,h2,h3,h4, h5
     animation: fade-out-left 0.3s linear;
 }
 
+.trioSlideShow
+{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 50%;
+    margin-top: 200px;
+    transform: translate(-50%);
+    align-items: center;
+    top: 0;
 
-@keyframes fade-Out
+}
+
+.trioSlideShowSlide
+{
+    height: 33%;
+    width: 100%;
+    transform: translate(-600px);
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.trioSlideShow div img
+{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: solid;
+    border-radius: 10%;
+}
+
+@keyframes fade-in
 {
     0%
     {
-        opacity: 1;
+        opacity: 0;
     }
     100%
     {
-        opacity: 0;
+        opacity: 1;
     }
 }
+
 @keyframes move-upper-left-corner
 {
     0%

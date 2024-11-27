@@ -1,4 +1,5 @@
-import { entries } from "lodash";
+import { clamp, entries } from "lodash";
+import { ScrollableSlideShow } from "./ScrollableSlideShow";
 
 //Fading logic for fading out the overlay image of a section
 const fadeSections = document.querySelectorAll(".adSectionOverlayFade");
@@ -37,3 +38,16 @@ const logoObserver = new IntersectionObserver((entries, observer) => {
     logos.forEach(section => {
       logoObserver.observe(section);
   });
+
+  //Triple slideshow
+  var lastScrollY = 0;
+  var currentScrollY = 0;
+  var scrollDelta = 0;
+  var slideShow = new ScrollableSlideShow("#firstSlideShowFirstElement", 1, 300);
+
+  window.addEventListener('scroll', () => {
+    lastScrollY = currentScrollY;
+    currentScrollY = window.scrollY;
+    scrollDelta = currentScrollY - lastScrollY;
+    slideShow.scrollElement(clamp(scrollDelta, -1, 1), scrollDelta);
+  })
