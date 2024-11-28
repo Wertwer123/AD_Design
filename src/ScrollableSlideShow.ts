@@ -16,8 +16,7 @@ export class ScrollableSlideShow
         this.slideShowElement = document.querySelector(slideShowElementName);
         this.scrollDirection = direction;
         this.isVisible = false;
-        console.log(this.slideShowElement);
-        console.log(slideShowElementName);
+     
         if(!this.slideShowElement){
            
             return;

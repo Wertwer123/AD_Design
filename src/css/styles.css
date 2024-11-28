@@ -1,12 +1,38 @@
+:root
+{
+    --subHeaderSize: 2.5vw;
+    --TextColor: #fff;
+    --headerSize: 5vw;
+
+}
+
 html
 {
     overflow-x: hidden;
     scroll-behavior: smooth;
     background-color: black;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
 }
 p, h1,h2,h3,h4, h5
 {
     margin: 0;
+    color: var(--TextColor);
+}
+
+h1,h2
+{
+    font-size: var(--headerSize);
+}
+
+h5
+{
+    font-size: var(--subHeaderSize);
+}
+
+h1,h2
+{
+    font-weight: bold;
 }
 
 .heroSection
@@ -25,12 +51,9 @@ p, h1,h2,h3,h4, h5
 
 .heroSectionHeader
 {
-    font-size: 90px;
     position: absolute;
-    transform-origin: center;
-    left: 50%; /* Move 50% from the left */
+    left: 50%;
     top: 25%;
-    min-width: 600px;
     min-height: 100px;
     transform: translateX(-50%);
     color: #000000;
@@ -39,11 +62,9 @@ p, h1,h2,h3,h4, h5
 
 .heroSectionSubHeader
 {
-    font-size: 65px;
     position: absolute;
-    transform-origin: center;
     min-width: 600px;
-    left: 55%; /* Move 50% from the left */
+    left: 55%;
     top: 32%;
     transform: rotateZ(-5deg) translateX(-43%);
     color: bisque;
@@ -59,11 +80,11 @@ p, h1,h2,h3,h4, h5
 
 .adSectionLogo
 {
-    position: absolute;
-    left: 5%;
-    top: 5%;
-    width: 175px;
-    height: 114px;
+    opacity: 1;
+    max-width: 175px;
+    max-height: 114px;
+    width: 100%;
+    height: auto;
     z-index: 20;
 }
 .adSectionLogo.seen
@@ -80,6 +101,24 @@ p, h1,h2,h3,h4, h5
     height: 600vh;
     width: 100%;
     background-color: #000000;
+}
+
+.sectionHeader
+{
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sectionHeaderText
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    text-align: left;
 }
 
 .sectionContainer
@@ -112,34 +151,41 @@ p, h1,h2,h3,h4, h5
 
 .storySlideShow
 {
-    position: absolute;
+    position: relative;
     overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 500px;
-    bottom: 15%;
 }
+
 .storyElement
 {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: fit-content;
-    min-width: fit-content;
-    white-space: nowrap;
-    text-align: left;
-    gap: -5px;
-    right: 0%;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    left: 50%;
+    transform: translate(-50%);
     bottom: 0;
-    font-size: 4rem;
     opacity: 0;
-    color: white;
+}
+
+.storyElement div
+{
+    text-align: left;
 }
 
 .storyElement.shown
 {
-    right: 50%;
+    left: 50%;
     opacity: 1;
-    transform: translateX(50%);
+    transform: translateX(-50%);
     animation: fade-in-right 0.3s linear;
 }
 
@@ -170,6 +216,7 @@ p, h1,h2,h3,h4, h5
     margin-top: 10px;
     display: inline-flex;
     align-items: center;
+    will-change: transform;
 }
 
 .trioSlideShow div img
@@ -211,12 +258,12 @@ p, h1,h2,h3,h4, h5
     0%
     {
         opacity: 0;
-        right: 0%;
+        left: 100%;
     }
     100%
     {
         opacity: 1;
-        right: 50%;
+        left: 50%;
     }
 }
 
@@ -225,11 +272,11 @@ p, h1,h2,h3,h4, h5
     0%
     {
         opacity: 1;
-        right: 50%;
+        left: 50%;
     }
     100%
     {
         opacity: 0;
-        right: 100%;
+        left: 0%;
     }
 }
