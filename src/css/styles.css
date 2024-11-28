@@ -153,7 +153,7 @@ p, h1,h2,h3,h4, h5
 .trioSlideShow
 {
     position: absolute;
-    width: 100%;
+    width: calc(100% + 700px);
     height: 50%;
     left: 50%;
     margin-top: 200px;
@@ -167,19 +167,18 @@ p, h1,h2,h3,h4, h5
 {
     height: 33%;
     width: 100%;
-    transform: translate(-600px);
+    margin-top: 10px;
     display: inline-flex;
-    justify-content: space-evenly;
     align-items: center;
 }
 
 .trioSlideShow div img
 {
-    width: 100%;
+    width: 50%;
     height: 100%;
-    padding: 10px;
     border: solid;
     border-radius: 10%;
+    transform: translate(0,0,0);
 }
 
 @keyframes fade-in

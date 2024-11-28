@@ -8,3 +8,4 @@ import './assets/DesignDays_Logo_turkis.png';
 import './textScrolling';
 import './assets/SaxophoneGuy.jpg';
 import './assets/Bühne.jpg';
+import './ScrollableSlideShow'
