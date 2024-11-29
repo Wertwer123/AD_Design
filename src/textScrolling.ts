@@ -62,28 +62,25 @@ window.addEventListener('scroll', (event)=>{
 
         const carousel = slideShows[i] as HTMLElement;
         
-        if(!carousel.parentElement?.parentElement?.parentElement){
+        if(!carousel.parentElement?.parentElement){
             continue;
         }
 
-        var sectionElement = carousel.parentElement.parentElement.parentElement;
-        console.log(sectionElement);
-        if(!isElementVisible(carousel)){
-            console.log("Not visible");
-            continue;
-        }
-       
         lastScrollY = currentScrollY;
         currentScrollY = window.scrollY;
         scrollDelta = currentScrollY - lastScrollY;
         currentDirection = currentScrollY - lastScrollY;
         currentDirection = clamp(currentDirection, -1, 1);
 
-       
-
         var offset = 0;
-        
+        var sectionElement = carousel.parentElement.parentElement;
         var distance = window.scrollY - (sectionElement.offsetTop + offset);
+       
+        if(distance < 0){
+            
+            return;
+        }
+
         const progress = (sectionElement.clientHeight -offset) - window.innerHeight;
         const percentage = distance / progress;
         const data = slideShowData.get(slideShows[i]);
