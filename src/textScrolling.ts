@@ -1,6 +1,4 @@
-//First get all section objects
-//then calculate the space in pixels that needs to be scrolled through 
-//then divide this by the number of text elements that we want to scroll through
+//If this doesnt work its probably because you changed the parent elements
 import { clamp } from "lodash";
 var scrollDelta = 0;
 var scrollYAmount = 0;
@@ -50,6 +48,20 @@ function hideCarouselElement(index: number, carousel: HTMLElement)
     carousel.children[index].classList.add("hidden");
 }
 
+function getOffsetFromDocumentTop(element:HTMLElement) {
+    let offsetTop = 0;
+    while (element != null) {
+
+        if(!element || !element.offsetParent){
+            break;
+        }
+
+        offsetTop += element.offsetTop;
+        element = element.offsetParent as HTMLElement; // Traverse up to the next positioned ancestor
+    }
+    return offsetTop;
+}
+
 slideShows.forEach((slideShow) => {
     if(!slideShowData.has(slideShow)){
         slideShowData.set(slideShow, {percentage: 0, previousPercentage: 0, currentIndex: -1});
@@ -58,47 +70,56 @@ slideShows.forEach((slideShow) => {
     
 window.addEventListener('scroll', (event)=>{
 
-    for(var i = 0; i < slideShows.length; ++i){
+    lastScrollY = currentScrollY;
+    currentScrollY = window.scrollY;
+    scrollDelta = currentScrollY - lastScrollY;
+    currentDirection = clamp(scrollDelta, -1, 1);
 
+    for(var i = 0; i < slideShows.length; i++){
+        
         const carousel = slideShows[i] as HTMLElement;
         
-        if(!carousel.parentElement?.parentElement){
+        if(!carousel.parentElement?.parentElement?.parentElement){
+            
             continue;
         }
 
-        lastScrollY = currentScrollY;
-        currentScrollY = window.scrollY;
-        scrollDelta = currentScrollY - lastScrollY;
-        currentDirection = currentScrollY - lastScrollY;
-        currentDirection = clamp(currentDirection, -1, 1);
-
-        var offset = 0;
-        var sectionElement = carousel.parentElement.parentElement;
-        var distance = window.scrollY - (sectionElement.offsetTop + offset);
        
+        
+        var sectionElement = carousel.parentElement.parentElement.parentElement;
+        var distance = window.scrollY - getOffsetFromDocumentTop(sectionElement);
+        
         if(distance < 0){
-            
-            return;
+            continue;
         }
 
-        const progress = (sectionElement.clientHeight -offset) - window.innerHeight;
+        const progress = sectionElement.clientHeight - window.innerHeight;
         const percentage = distance / progress;
         const data = slideShowData.get(slideShows[i]);
         var percentagePerElement = (100 / carousel.children.length) / 100;
-
+        if(i == 1){
+            console.log('offset of element' + i + " " + getOffsetFromDocumentTop(sectionElement));
+            console.log("Disstance of element " + "" + i + distance);
+            console.log(percentage)
+            console.log(currentDirection);
+        }
         data.previousPercentage = data.percentage; // Update previous distance
         data.percentage = percentage;
         data.percentage = clamp(percentage, 0, 1);
 
         var percentageThreshold = 0.0;
        
-        for(var i = 0; i < carousel.children.length; i++){
+        for(var j = 0; j < carousel.children.length; j++){
            
             if(currentDirection > 0){
                
-                if(data.percentage >= percentageThreshold && data.currentIndex < i){
-                    data.currentIndex = i;
+                if(data.percentage >= percentageThreshold && data.currentIndex < j){
+                    data.currentIndex = j;
                     showCarouselElement(data.currentIndex, currentDirection, carousel);
+                   
+                        console.log("changed");
+                        console.log(currentDirection)
+                    
                     break;
                    
                 }
@@ -106,9 +127,9 @@ window.addEventListener('scroll', (event)=>{
             }
             else if (currentDirection < 0){
                 percentageThreshold += percentagePerElement;
-                if(data.percentage <= percentageThreshold && data.currentIndex > i){
+                if(data.percentage <= percentageThreshold && data.currentIndex > j){
                     
-                    data.currentIndex = i;
+                    data.currentIndex = j;
                     showCarouselElement(data.currentIndex, currentDirection, carousel);
                     break;
                 }
