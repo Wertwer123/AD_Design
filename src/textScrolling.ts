@@ -15,7 +15,12 @@ var currentScrollY = 0;
 
 function isElementVisible(element: HTMLElement) {
     const rect = element.getBoundingClientRect();
-    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+    
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth))
 };
 
 function showCarouselElement(index: number, direction: number, carousel: HTMLElement){
@@ -24,11 +29,11 @@ function showCarouselElement(index: number, direction: number, carousel: HTMLEle
     
     //Scrolling to the left
    
-
+    
     carousel.children[index].classList.remove("hidden");
     carousel.children[index].classList.add("shown");
     if(index - direction > carousel.children.length - 1 || index - direction < 0){
-        console.log("heyho overshot")
+       
         return;
     }
     carousel.children[index - direction].classList.remove("shown");
@@ -57,7 +62,14 @@ window.addEventListener('scroll', (event)=>{
 
         const carousel = slideShows[i] as HTMLElement;
         
+        if(!carousel.parentElement?.parentElement?.parentElement){
+            continue;
+        }
+
+        var sectionElement = carousel.parentElement.parentElement.parentElement;
+        console.log(sectionElement);
         if(!isElementVisible(carousel)){
+            console.log("Not visible");
             continue;
         }
        
@@ -67,12 +79,10 @@ window.addEventListener('scroll', (event)=>{
         currentDirection = currentScrollY - lastScrollY;
         currentDirection = clamp(currentDirection, -1, 1);
 
-        if(!carousel.parentElement?.parentElement?.parentElement){
-            continue;
-        }
+       
 
         var offset = 0;
-        var sectionElement = carousel.parentElement.parentElement.parentElement;
+        
         var distance = window.scrollY - (sectionElement.offsetTop + offset);
         const progress = (sectionElement.clientHeight -offset) - window.innerHeight;
         const percentage = distance / progress;
@@ -84,7 +94,7 @@ window.addEventListener('scroll', (event)=>{
         data.percentage = clamp(percentage, 0, 1);
 
         var percentageThreshold = 0.0;
-
+       
         for(var i = 0; i < carousel.children.length; i++){
            
             if(currentDirection > 0){

@@ -16,7 +16,7 @@ export class ScrollableSlideShow
         this.slideShowElement = document.querySelector(slideShowElementName);
         this.scrollDirection = direction;
         this.isVisible = false;
-     
+
         if(!this.slideShowElement){
            
             return;
@@ -30,11 +30,6 @@ export class ScrollableSlideShow
 
     public scrollElement(direction:number, scrollValue:number){
         //depending on direction every time we scroll over a threshold insert the last item at the beginning and vise versa
-        if(!this.continueSlide){
-            console.log("not sliding")
-            return;
-        }
-
         scrollValue = Math.abs(scrollValue);
         var directionToMove = direction * this.scrollDirection;
         this.accumulatedScroll += scrollValue * directionToMove * 0.5;

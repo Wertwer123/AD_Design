@@ -37,7 +37,7 @@ h1,h2
 
 .heroSection
 {
-    height: 12000px;  
+    height: 4000px;  
     width: 100%; 
 }
 
@@ -80,25 +80,37 @@ h1,h2
 
 .adSectionLogo
 {
-    opacity: 1;
-    max-width: 175px;
-    max-height: 114px;
-    width: 100%;
-    height: auto;
+    opacity: 0;
+    width: 10%;
+    height: 100%;
+    margin-left: 15%;
+    margin-right: 50px;
+    margin-top: 5px;
     z-index: 20;
 }
 .adSectionLogo.seen
 {
+    opacity: 1;
     animation: fade-in 2s linear;
 }
 
-.section
+.stickySection
 {
     margin-bottom: 20px;
     border-bottom: solid;
     border-color: whitesmoke;
     position: relative;
-    height: 600vh;
+    height: 300vh;
+    width: 100%;
+    background-color: #000000;
+}
+
+.section
+{
+    border-bottom: solid;
+    border-color: whitesmoke;
+    position: relative;
+    height: 800px;
     width: 100%;
     background-color: #000000;
 }
@@ -106,9 +118,11 @@ h1,h2
 .sectionHeader
 {
     position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 100%;
+    height: fit-content;
+    margin-bottom: 30px;
 }
 
 .sectionHeaderText
@@ -117,7 +131,6 @@ h1,h2
     flex-direction: column;
     width: 100%;
     height: 100%;
-    align-items: center;
     text-align: left;
 }
 
@@ -131,14 +144,7 @@ h1,h2
     align-items: last baseline;
 }
 
-.sectionContentContainer
-{
-    position: relative;
-    height: 100vh;
-    width: 100%;
-}
-
-.section div div video
+.sectionVideo
 {
     height: 100%;
     width: 100%;
@@ -149,83 +155,101 @@ h1,h2
     top: 50%;
 }
 
+
 .storySlideShow
 {
     position: relative;
-    overflow-x: hidden;
-    justify-content: center;
-    align-items: center;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 500px;
+    transform: translate(-50%);
+    width: 100vw;
+    height:80vh;
 }
 
 .storyElement
 {
     position: absolute;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    width: 100%;
-    height: 200px;
+    justify-content: center;
+    text-align: center;
     left: 50%;
     transform: translate(-50%);
+    width: 100%;
+    height: 100%;
     bottom: 0;
     opacity: 0;
 }
 
 .storyElement div
 {
-    text-align: left;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.storyElement div img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .storyElement.shown
 {
     left: 50%;
     opacity: 1;
-    transform: translateX(-50%);
     animation: fade-in-right 0.3s linear;
 }
 
 .storyElement.hidden
 {
     opacity: 0;
-    right: 50%;
+    left: -50%;
     animation: fade-out-left 0.3s linear;
 }
 
 .trioSlideShow
 {
-    position: absolute;
-    width: calc(100% + 700px);
-    height: 50%;
-    left: 50%;
-    margin-top: 200px;
-    transform: translate(-50%);
-    align-items: center;
-    top: 0;
-
+    margin-top: 50px;
+    width: 100%;
+    height: fit-content;
 }
 
 .trioSlideShowSlide
 {
-    height: 33%;
+    height: 100%;
     width: 100%;
-    margin-top: 10px;
-    display: inline-flex;
+    display: flex;
+    flex-wrap: nowrap;
     align-items: center;
+    justify-content: center;
     will-change: transform;
 }
 
-.trioSlideShow div img
+.trioSlideShow div picture img
 {
-    width: 50%;
-    height: 100%;
+    height: var(--p-height);
+    width: var(--p-width);
     border: solid;
     border-radius: 10%;
-    transform: translate(0,0,0);
+    --p-width: 345px;
+    --p-height: 195px
+   
+}
+
+@media only screen and (max-width: 1068px)and (max-width:1068px) {
+    .trioSlideShow div picture img {
+        --p-width:265px;
+        --p-height: 150px
+    }
+}
+
+@media only screen and (max-width: 734px)and (max-width:734px) {
+    .trioSlideShow div picture img {
+        --p-width:192px;
+        --p-height: 108px
+    }
 }
 
 @keyframes fade-in
