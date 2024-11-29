@@ -1,5 +1,5 @@
 //If this doesnt work its probably because you changed the parent elements
-import { clamp } from "lodash";
+import { clamp, forEach } from "lodash";
 var scrollDelta = 0;
 var scrollYAmount = 0;
 
@@ -31,11 +31,22 @@ function showCarouselElement(index: number, direction: number, carousel: HTMLEle
     carousel.children[index].classList.remove("hidden");
     carousel.children[index].classList.add("shown");
     if(index - direction > carousel.children.length - 1 || index - direction < 0){
-       
         return;
     }
-    carousel.children[index - direction].classList.remove("shown");
-    carousel.children[index - direction].classList.add("hidden");
+
+    for(var i = 0; i < carousel.children.length; i++){
+        console.log(i);
+        if(i != index){
+            carousel.children[i].classList.remove("shown");
+           
+            if(!carousel.children[i].classList.contains("hidden")){
+
+                carousel.children[i].classList.add("hidden");
+            }
+        }
+       
+    }
+   
     
 
 }
@@ -84,8 +95,6 @@ window.addEventListener('scroll', (event)=>{
             continue;
         }
 
-       
-        
         var sectionElement = carousel.parentElement.parentElement.parentElement;
         var distance = window.scrollY - getOffsetFromDocumentTop(sectionElement);
         
@@ -97,12 +106,7 @@ window.addEventListener('scroll', (event)=>{
         const percentage = distance / progress;
         const data = slideShowData.get(slideShows[i]);
         var percentagePerElement = (100 / carousel.children.length) / 100;
-        if(i == 1){
-            console.log('offset of element' + i + " " + getOffsetFromDocumentTop(sectionElement));
-            console.log("Disstance of element " + "" + i + distance);
-            console.log(percentage)
-            console.log(currentDirection);
-        }
+        
         data.previousPercentage = data.percentage; // Update previous distance
         data.percentage = percentage;
         data.percentage = clamp(percentage, 0, 1);
@@ -116,10 +120,6 @@ window.addEventListener('scroll', (event)=>{
                 if(data.percentage >= percentageThreshold && data.currentIndex < j){
                     data.currentIndex = j;
                     showCarouselElement(data.currentIndex, currentDirection, carousel);
-                   
-                        console.log("changed");
-                        console.log(currentDirection)
-                    
                     break;
                    
                 }
