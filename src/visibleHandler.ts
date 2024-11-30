@@ -1,5 +1,4 @@
-import { clamp, entries } from "lodash";
-import { ScrollableSlideShow } from "./ScrollableSlideShow";
+
 
 //Fading logic for fading out the overlay image of a section
 const fadeSections = document.querySelectorAll(".adSectionOverlayFade");
@@ -39,20 +38,19 @@ const logoObserver = new IntersectionObserver((entries, observer) => {
       logoObserver.observe(section);
   });
 
-  //Triple slideshow
-  var lastScrollY = 0;
-  var currentScrollY = 0;
-  var scrollDelta = 0;
-  var slideShow1 = new ScrollableSlideShow("#firstSlideShowFirstElement", -1);
-  var slideShow2 = new ScrollableSlideShow("#firstSlideShowSecondElement", 1);
-  var slideShow3 = new ScrollableSlideShow("#firstSlideShowThirdElement", -1);
+  const quotationBorder = document.querySelector("#quotationBorder");
 
-  window.addEventListener('scroll', () => {
-    lastScrollY = currentScrollY;
-    currentScrollY = window.scrollY;
-    scrollDelta = currentScrollY - lastScrollY;
-    slideShow1.scrollElement(clamp(scrollDelta, -1, 1), scrollDelta);
-    slideShow2.scrollElement(clamp(scrollDelta, -1, 1), scrollDelta);
-    slideShow3.scrollElement(clamp(scrollDelta, -1, 1), scrollDelta);
+  const quotationObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) =>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("seen");
+
+        observer.unobserve(entry.target);
+      }
+    })
   })
+if(quotationBorder){
+  quotationObserver.observe(quotationBorder);
+
+}
 

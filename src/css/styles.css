@@ -1,6 +1,7 @@
 :root
 {
     --subHeaderSize: 2.5vw;
+    --subSubHeaderSize: 1.5vw;
     --TextColor: #fff;
     --headerSize: 5vw;
     --bottomLayer: 1;
@@ -28,6 +29,10 @@ h1,h2
     font-size: var(--headerSize);
 }
 
+h3
+{
+    font-size: var(--subSubHeaderSize);
+}
 h5
 {
     font-size: var(--subHeaderSize);
@@ -41,24 +46,36 @@ h1,h2
 .navigationMenu
 {
     position:fixed;
+    display: flex;
+    flex-direction: column;
     z-index: var(--topLayer);
     right: 0;
     bottom: 10%;
-    width: 150px;
+    width: var(--p-width);
     height: fit-content;
     border: solid;
+    align-items: center;
+    justify-content: center;
     border-right: transparent;
     border-radius: 20px;
     border-color: white;
     border-width: 0.5px;
     background-color: black;
+    --p-width: 370px;
 }
 
 .homeButton
 {
-    width: 100%;
-    height: 33%;
+    width: 50%;
+    height:100%;
     background-color: white;
+    align-self: center;
+}
+
+.homeButton img
+{
+    height:57px;
+    width: 87px;
 }
 
 .navigationMenuLinks
@@ -66,19 +83,31 @@ h1,h2
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 66%;
+    height: 100px;
 }
 
 .navigationMenuIcon
 {
-    width: 100%;
-    height: 100%;
+    width: 15%;
+    height: 50%;
 }
 
-.navigationMenuIcon img
+.navigationMenuIcon.blue
 {
-    height: 100%;
-    width: 100%;
+    color: blue;
+    background-color: blue;
+}
+
+.navigationMenuIcon.yellow
+{
+    color: yellow;
+    background-color: yellow;
+}
+
+.navigationMenuIcon.lachs
+{
+    color: bisque;
+    background-color: bisque;
 }
 
 .navigationMenuLink
@@ -86,20 +115,25 @@ h1,h2
     width: 100%;
     height: 33%;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 50% 10%;
     grid-template-rows: 100%;
     text-align: right;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--dynamic-font-size);
+    margin-bottom: 3px;
+    --dynamic-font-size: 25px;
 }
 
 .navigationMenuLink a
 {
     color: white;
-   
+    text-decoration: none;
 }
 
 .heroSection
 {
-    height: 4000px;  
+    height: 8000px;  
     width: 100%; 
 }
 
@@ -159,8 +193,6 @@ h1,h2
 .stickySection
 {
     margin-bottom: 20px;
-    border-bottom: solid;
-    border-color: whitesmoke;
     position: relative;
     height: 300vh;
     width: 100%;
@@ -169,12 +201,16 @@ h1,h2
 
 .section
 {
-    border-bottom: solid;
-    border-color: whitesmoke;
     height: fit-content;
     width: 100%;
     background-color: #000000;
     margin-bottom: 100px;
+}
+
+.sectionOverlay
+{
+    position: absolute;
+
 }
 
 .sectionHeader
@@ -186,6 +222,68 @@ h1,h2
     width: 100%;
     height: fit-content;
     margin-bottom: 5%;
+}
+
+.sectionHeader.centered{
+    justify-content: center;
+}
+
+.quotationContainer
+{
+    position: relative;
+    width: 100%;
+    height: var(--p-height);
+    --p-height: 600px
+}
+
+.quatationBigText
+{
+    position: absolute;
+    top: 10%;
+    left: 25%;
+    font-weight: bold;
+}
+
+.quotationQuotedPeopleText
+{
+    position: absolute;
+    top: 55%;
+    left: 65%;
+    width: 100%;
+    height: fit-content;
+}
+
+.quotationTextContainer
+{
+    position:absolute;
+    top: 10%;
+    left: 40%;
+    width: 75%;
+    height: 100%;
+    text-align: left;
+}
+
+.quotationTextContainer h2
+{
+    font-size: 2.5vw;
+}
+
+.quotationBorder
+{
+    position: absolute;
+    border-left: solid;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: gold;
+    left: 20%;
+    bottom: 0;
+    width: 80%;
+    height: 100%;
+    transform-origin: left bottom;
+}
+
+.quotationBorder.seen{
+    animation: animateBorder 1s linear;
 }
 
 .sectionHeaderText
@@ -322,6 +420,7 @@ h1,h2
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
     will-change: transform;
     --p-height: 195px
     
@@ -346,6 +445,18 @@ h1,h2
     .trioSlideShowSlide{
         --p-height: 150px
     }
+    .quotationContainer
+    {
+        --p-height: 300px;
+    }
+    .navigationMenu
+    {
+        --p-width: 250px
+    }
+    .navigationMenuLink
+    {
+        --dynamic-font-size: 15px;
+    }
 }
 
 @media only screen and (max-width: 734px)and (max-width:734px) {
@@ -355,6 +466,36 @@ h1,h2
     }
     .trioSlideShowSlide{
         --p-height: 108px
+    }
+    .quotationContainer
+    {
+        --p-height: 150px;
+    }
+    .navigationMenu
+    {
+        --p-width: 200px
+    }
+    .navigationMenuLink
+    {
+        --dynamic-font-size: 10px;
+    }
+}
+
+@keyframes animateBorder
+{
+    0%
+    {
+        height: 0%;
+        width: 1px;
+    }
+    50%
+    {
+        height: 100%;
+        width: 1px;
+    }
+    100%
+    {
+        width: 75%;
     }
 }
 

@@ -1,6 +1,7 @@
 //video imports
 import './assets/BoxRender.mp4';
 import './assets/Design_Days.mp4'
+import './assets/Design_District.mp4'
 
 //image imports
 import './assets/SaxophoneGuy.jpg';
@@ -14,6 +15,7 @@ import './heroSectionVideoScrubbing';
 import './visibleHandler';
 import './textScrolling';
 import './ScrollableSlideShow'
+import './scrollHandler'
 
 //css imports
 import './css/styles.css';
