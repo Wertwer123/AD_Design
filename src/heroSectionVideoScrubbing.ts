@@ -25,6 +25,14 @@ const onScroll = () =>
         percentage = 0;
     }
 
+    if(percentage > 0.90){
+        var currentOpacity = 1 +(0 - 1) * (percentage - 0.10) / 0.90;
+        heroSectionVideo.style.opacity = currentOpacity.toString();
+    }
+    else if(percentage < 0.90){
+        var currentOpacity = 1;
+        heroSectionVideo.style.opacity = currentOpacity.toString();
+    }
     if(heroSectionVideo.duration > 0){
         heroSectionVideo.currentTime = heroSectionVideo.duration * percentage;
     }

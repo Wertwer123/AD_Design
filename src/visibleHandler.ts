@@ -38,7 +38,7 @@ const logoObserver = new IntersectionObserver((entries, observer) => {
       logoObserver.observe(section);
   });
 
-  const quotationBorder = document.querySelector("#quotationBorder");
+  const quotationBorders = document.querySelectorAll(".quotationBorder");
 
   const quotationObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) =>{
@@ -49,8 +49,11 @@ const logoObserver = new IntersectionObserver((entries, observer) => {
       }
     })
   })
-if(quotationBorder){
-  quotationObserver.observe(quotationBorder);
 
-}
+  quotationBorders.forEach((border) =>{
+    if(border){
+      quotationObserver.observe(border);
+    }
+  })
+
 

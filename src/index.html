@@ -4,26 +4,32 @@
     <meta charset="UTF-16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
     <title>AD_Design360°</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Caveat:wght@400..700&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Actor&family=Baskervville+SC&family=Caveat:wght@400..700&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Actor&family=Baskervville+SC&family=Caveat:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <script src="bundle.js"></script>
     <div class="navigationMenu">
         <div class="homeButton">
-            <img src="./assets/DesignDays_Logo_turkis.png" alt="">
+            <img src="./assets/Home-Button.png" alt="">
         </div>
         <div class="navigationMenuLinks">
             <div class="navigationMenuLink">
-                <a href="#DesignDays">Design Days</a>
+                <a class="signikaRegular" href="#DesignDays">Design Days</a>
                 <div class="navigationMenuIcon blue">
                 </div>
             </div>
             <div class="navigationMenuLink">
-                <a href="#DesignDistrict">Design District</a>
+                <a class="signikaRegular" href="#DesignDistrict">Design District</a>
                 <div class="navigationMenuIcon yellow">
                 </div>
             </div>
             <div class="navigationMenuLink">
-                <a href="#DesignDeluxe">Design DELUXE</a>
+                <a class="signikaRegular" href="#DesignDeluxe">Design DELUXE</a>
                 <div class="navigationMenuIcon lachs">
                 </div>
             </div>
@@ -42,34 +48,34 @@
                 <div class="sectionHeader">
                     <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
                 </div>
-                
+                <div class="aquaBackground adSectionOverlayFade"></div>
                 <video class="sectionVideo" src="./assets/Design_Days.mp4" autoplay muted loop></video>
                 <div class="storySlideShow">
                     <div class="storyElement ">
                         <div class="storyElementCenteredLeftAllignedText">
-                            <h2 class="signika"> 3 Tage </p>
-                            <h5> Gustieren, flanieren & probieren</p>
+                            <h2 class="actorRegular"> 3 Tage </p>
+                            <h5 class="actorRegular"> Designvielfalt</p>
                         </div>
                     </div>
                     
                     <div class="storyElement ">
                         <div class="storyElementCenteredLeftAllignedText">
-                            <h2>33.000 Besucher </p>
-                            <h5>An 3 Austellungstagen</p>
+                            <h2 class="actorRegular">33.000 Besucher </p>
+                            <h5 class="actorRegular">An 3 Austellungstagen</p>
                         </div>
                     </div>
     
                     <div class="storyElement ">
                         <div class="storyElementCenteredLeftAllignedText">
-                            <h2> 15.000 qm Austellungsfläche</p>
-                            <h5> Outdoor & Indoor</p>
+                            <h2 class="actorRegular"> 15.000qm Austellungsfläche</p>
+                            <h5 class="actorRegular"> Outdoor & Indoor</p>
                         </div>
                         
                     </div>
                     <div class="storyElement ">
                         <div class="storyElementCenteredLeftAllignedText">
-                            <h2>2 Konzerte</p>
-                            <h5>pro jahr im Wolkenturm</p>
+                            <h2 class="actorRegular">2 Konzerte</p>
+                            <h5 class="actorRegular">pro jahr im Wolkenturm</p>
                         </div>
     
                     </div>
@@ -84,8 +90,8 @@
                 <div class="sectionHeader">
                     <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
                     <div class="sectionHeaderText">
-                            <h2 class="signika"> Themenvielfalt</h2>
-                            <h5> Outdoor & Indoor: Design Garten Interieur, Mobilität, <br>
+                            <h2 class="actorRegular"> Themenvielfalt</h2>
+                            <h5 class="signikaRegular"> Outdoor & Indoor: Design Garten Interieur, Mobilität, <br>
                             Mode & Accesoirs, Handwerk, Kulinarik & Wein</h5>
                     </div>
                 </div>
@@ -218,8 +224,8 @@
                 <div class="sectionHeader">
                     <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
                     <div class="sectionHeaderText">
-                        <h2> Erlebnissfaktor</h2>
-                        <h5> Die Design Days ziehen mit ihrem vielfältigen Angebot ein breites Publikum, <br>
+                        <h2 class="actorRegular"> Erlebnissfaktor</h2>
+                        <h5 class="signikaRegular"> Die Design Days ziehen mit ihrem vielfältigen Angebot ein breites Publikum,
                         an und bieten die Möglichkeit, neue Zielgruppen erschliesen</h5>
                     </div>
                 </div>
@@ -228,13 +234,21 @@
                     <div class="storyElement ">
                         <div class="storyElementMultiElementContainer">
                             <div>
-                                <img src="./assets/SaxophoneGuy.jpg" alt="">
+                                <video class="storyElementMultiElementContainerVideo" src="./assets/Konzerte_mini.mp4" muted autoplay loop>
                             </div>
                             <div class="storyElementMultiElementContainerAllignTextLeft">
-                                <h2> Testfahrten </p>
-                                <h5>• Strategische Leadgenerierung<br>
-                                    • Enge Kundenbindung aufbauen<br>
-                                    • Förderung der Kaufentscheidung</p>
+                                <div  class=" storyElementMultiElementContainerRightCenteredContainer">
+                                    <h3 class="actorRegular"> KONZERTHIGHLIGHTS </p>
+                                        <h4 class="signikaRegular">Die Design Days holten schon Stars
+                                            wie Klangkarussel, Parov Stelar oder
+                                            
+                                            JOSH nach Grafenegg. Aussteller kön-
+                                            nen die Gelegenheit nutzen, Kunden
+                                            
+                                            und Partner zu treffen und in ent-
+                                            spannter Atmosphäre zu netzwerken.
+                                        </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -242,11 +256,25 @@
                     <div class="storyElement ">
                         <div class="storyElementMultiElementContainer">
                             <div class="storyElementMultiElementContainerAllignTextRight">
-                                <h2> 3 Tage </p>
-                                <h5> Gustieren, flanieren & probieren</p>
+                                <div class="storyElementMultiElementContainerLeftCenteredContainer">
+                                    <h3 class="actorRegular"> TESTFAHRTEN </p>
+                                    <h4 class="signikaRegular"> 
+                                        Im Rahmen der Messe haben unsere
+
+                                        Mobilitätspartner die Möglich
+                                        keit, ausgewählte Modelle für
+
+                                        Probefahrten anzubieten. Die
+                                        Kommunikation erfolgt breit über
+                                        all unsere Kanäle, die Anmeldung
+
+                                        erfolgt über ein Registrierungs
+                                        tool auf der Design Days Website.
+                                    </p>
+                                </div>
                             </div>
                             <div>
-                                <img src="./assets/SaxophoneGuy.jpg" alt="">
+                                <img src="./assets/180 - KPP_9041.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -254,11 +282,24 @@
                     <div class="storyElement ">
                         <div class="storyElementMultiElementContainer">
                             <div>
-                                <img src="./assets/SaxophoneGuy.jpg" alt="">
+                                <img src="./assets/176 - KPP_9052.jpg" alt="">
                             </div>
                             <div class="storyElementMultiElementContainerAllignTextLeft">
-                                <h2> 3 Tage </p>
-                                <h5> Gustieren, flanieren & probieren</p>
+                                <div  class=" storyElementMultiElementContainerRightCenteredContainer">
+                                    <h3 class="actorRegular"> WEIN & KULINARIK </p>
+                                        <h4 class="signikaRegular">
+                                            Ein breites kulinarisches An-
+                                            gebot erhöht die Verweildauer<br>
+                                            
+                                            der Besucher, zusätzlich stellen<br>
+                                            ausgewählte Winzer ihre feinen<br>
+                                            Tropfen vor – die Weinverkostung<br>
+                                            ist im Eintrittspreis inbegriffen<br>
+                                            
+                                            und bildet so einen weiteren An-<br>
+                                            ziehungspunkt der Messe.
+                                        </p>
+                                </div>
                             </div>
                         </div>
                         
@@ -275,22 +316,27 @@
                     <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
                 </div>
                 <div class="quotationContainer">
-                    <div id="quotationBorder" class="quotationBorder"></div>
+                    <div id="quotationBorder" class="quotationBorder borderGold"></div>
                     <div class="quotationTextContainer">
-                        <h2> „Design ist Lebensfreude. Es belebt<br>
+                        <h2 class="actorRegular"> „Design ist Lebensfreude. Es belebt<br>
                             unsere Sinne und unsere Fantasie.<br>
                             Und hier ist es zuhause.“</h2>
                     </div>
                     <div class="quatationBigText">
-                       <h5>
+                       <h5 class="dmSerifDisplayRegular">
                         DESIGN<br>
                         BRAUCHT<br>
+                       </h5>
+                       <h5 style="font-weight: 100; color: grey;">
                         EINEN<br>
                         RAHMEN<br>
                        </h5>
                     </div>
                     <div class="quotationQuotedPeopleText">
-                        <h3>Sabine und CO</h3>
+                        <h3>SABINE JÄGER & PETER SYRCH</h3>
+                    </div>
+                    <div class="quotationQuotedPeopleTaskText">
+                        <h4>Veranstalter Design Days & Design District</h4>
                     </div>
                 </div>
                
@@ -304,9 +350,10 @@
         <div class="stickySectionContainer">
             <div class="sectionContentContainer">
                 <div class="sectionHeader">
-                    <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
+                    <img class="adSectionLogo" src="./assets/DesignDistrict_Logo_gelb.png" alt="cover image">
                 </div>
-                
+
+                <div class="yellowBackground adSectionOverlayFade"></div>
                 <video class="sectionVideo" src="./assets/Design_District.mp4" autoplay muted loop></video>
                 <div class="storySlideShow">
                     <div class="storyElement ">
@@ -346,7 +393,7 @@
         <div class="sectionContainer">
             <div class="sectionContentContainer">
                 <div class="sectionHeader">
-                    <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
+                    <img class="adSectionLogo" src="./assets/DesignDistrict_Logo_gelb.png" alt="cover image">
                     <div class="sectionHeaderText">
                             <h2> Themenvielfalt</h2>
                             <h5> Outdoor & Indoor: Design Garten Interieur, Mobilität, <br>
@@ -479,11 +526,11 @@
         <div class="stickySectionContainer">
             <div class="sectionContentContainer">
                 <div class="sectionHeader">
-                    <img class="adSectionLogo" src="./assets/DesignDays_Logo_turkis.png" alt="cover image">
+                    <img class="adSectionLogo" src="./assets/DesignDistrict_Logo_gelb.png" alt="cover image">
                     <div class="sectionHeaderText">
                         <h2> Erlebnissfaktor</h2>
-                        <h5> Die Design Days ziehen mit ihrem vielfältigen Angebot ein breites Publikum, <br>
-                        an und bieten die Möglichkeit, neue Zielgruppen erschliesen</h5>
+                        <h5> Der Design District macht ganz Wien zur Design-Erlebniswelt, zieht ein breites
+                            Publikum an und fördert den Austausch zwischen Konsumenten und Anbietern.</h5>
                     </div>
                 </div>
                
@@ -491,13 +538,20 @@
                     <div class="storyElement ">
                         <div class="storyElementMultiElementContainer">
                             <div>
-                                <img src="./assets/SaxophoneGuy.jpg" alt="">
+                                <video class="storyElementMultiElementContainerVideo" src="./assets/VIP_mini.mp4" muted autoplay loop>
                             </div>
                             <div class="storyElementMultiElementContainerAllignTextLeft">
-                                <h2> Testfahrten </p>
-                                <h5>• Strategische Leadgenerierung<br>
-                                    • Enge Kundenbindung aufbauen<br>
-                                    • Förderung der Kaufentscheidung</p>
+                                <div  class=" storyElementMultiElementContainerRightCenteredContainer">
+                                    <h3 class="actorRegular"> VIP ABEND </p>
+                                        <h4 class="signikaRegular">
+                                            Geladene Gäste aus Design,
+                                            Architektur, Immobilien, Hand-
+                                            werk, Wirtschaft und Society
+                                            erhalten eine exklusive Pre-View
+                                            der Design Neuheiten bei coolen
+                                            Drinks und feiner Kulinarik.
+                                        </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -505,11 +559,21 @@
                     <div class="storyElement ">
                         <div class="storyElementMultiElementContainer">
                             <div class="storyElementMultiElementContainerAllignTextRight">
-                                <h2> 3 Tage </p>
-                                <h5> Gustieren, flanieren & probieren</p>
+                                <div class="storyElementMultiElementContainerLeftCenteredContainer">
+                                    <h3 class="actorRegular"> WIEN LEUCHTET GELB! </p>
+                                    <h4 class="signikaRegular"> 
+                                        Gemeinsam stark: Rund 40. Mio. Kontakt-
+                                        chancen ermöglichen der Design Herbst
+                                        unseren Ausstellern und Partnern. Vier
+                                        Wochen lang laden Design & Kunst zum
+                                        Flanieren und Gustieren ein: Showrooms
+                                        in ganz Wien und Umgebung werden in
+                                        Design District Gelb getaucht.
+                                    </p>
+                                </div>
                             </div>
                             <div>
-                                <img src="./assets/SaxophoneGuy.jpg" alt="">
+                                <img src="./assets/_ORU2254.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -517,16 +581,54 @@
                     <div class="storyElement ">
                         <div class="storyElementMultiElementContainer">
                             <div>
-                                <img src="./assets/SaxophoneGuy.jpg" alt="">
+                                <img src="./assets/@Sandra Oblak_Möbel & Design Guide_Hofburg_041024_212.jpg" alt="">
                             </div>
                             <div class="storyElementMultiElementContainerAllignTextLeft">
-                                <h2> 3 Tage </p>
-                                <h5> Gustieren, flanieren & probieren</p>
+                                <div  class=" storyElementMultiElementContainerRightCenteredContainer">
+                                    <h3 class="actorRegular"> SIDE EVENTS </p>
+                                        <h4 class="signikaRegular">
+                                            Nutzen Sie die vorhandene Infra-
+                                            struktur und veranstalten Sie im
+                                            Rahmen der Messe ihr ganz indi-
+                                            viduelles Side-Event: Relaunch,
+                                            Produktvorstellung, Pressekonfe-
+                                            renz, Talk oder Verleihung.
+                                        </p>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Stats">
+        */here will be the three chips section/*
+    </section>
+    <section id="360degreeSolution">
+        */and here the 360 degree solution section/*
+    </section>
+    <section id="Quotation" class="section">
+        <div class="sectionContainer">
+            <div class="sectionContentContainer">
+                <div class="sectionHeader centered">
+                    <img class="adSectionLogo" src="./assets/DesignDistrict_Logo_gelb.png" alt="cover image">
+                </div>
+                <div class="quotationContainer">
+                    <div id="quotationBorder" class="quotationBorder borderLachs"></div>
+                    <div class="quatationBigText">
+                       <h5 class="dmSerifDisplayRegular">
+                        DESIGN<br>
+                        BRAUCHT<br>
+                       </h5>
+                       <h5 style="font-weight: 100; color: bisque;">
+                        EINE<br>
+                        COMMUNITY<br>
+                       </h5>
+                    </div>
+                </div>
+               
             </div>
         </div>
     </section>

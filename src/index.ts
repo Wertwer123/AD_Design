@@ -2,6 +2,7 @@
 import './assets/BoxRender.mp4';
 import './assets/Design_Days.mp4'
 import './assets/Design_District.mp4'
+import './assets/Konzerte_mini.mp4'
 
 //image imports
 import './assets/SaxophoneGuy.jpg';
@@ -61,6 +62,9 @@ import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
+import './assets/Home-Button.png'
+import './assets/DesignDistrict_Logo_gelb.png'
+import './assets/VIP_mini.mp4'
 
 
 //js file imports

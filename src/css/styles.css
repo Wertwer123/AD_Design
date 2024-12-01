@@ -1,7 +1,8 @@
 :root
 {
     --subHeaderSize: 2.5vw;
-    --subSubHeaderSize: 1.5vw;
+    --subSubHeaderSize: 2.3vw;
+    --flowTextSize: 2.0vw;
     --TextColor: #fff;
     --headerSize: 5vw;
     --bottomLayer: 1;
@@ -21,18 +22,29 @@ body
     scroll-behavior: smooth;
 }
 
-@font-face {
-    font-family: "Signika";
-    src: url("../assets/Wavy.otf") format('otf') !important;
+.signikaRegular 
+{
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "GRAD" 0;
+}
+
+.actorRegular 
+{
+    font-family: "Actor", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
-.signika
+.dmSerifDisplayRegular 
 {
-    font-family: "Signika";
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
 }
-
+  
 p, h1,h2,h3,h4, h5
 {
     margin: 0;
@@ -49,6 +61,12 @@ h3
 {
     font-size: var(--subSubHeaderSize);
 }
+
+h4
+{
+    font-size: var(--flowTextSize);
+}
+
 h5
 {
     font-size: var(--subHeaderSize);
@@ -75,18 +93,30 @@ h5
     --p-width: 370px;
 }
 
+.aquaBackground
+{
+    background-color: aqua;
+}
+
+.yellowBackground
+{
+    background-color: yellow;
+}
+
 .homeButton
 {
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
     height:100%;
-    background-color: white;
     align-self: center;
 }
 
 .homeButton img
 {
-    height:57px;
-    width: 87px;
+    height:70px;
+    width: 70px;
+    align-self: center;
 }
 
 .navigationMenuLinks
@@ -139,7 +169,6 @@ h5
 .navigationMenuLink a
 {
     color: white;
-    font-family: "Signika";
     text-decoration: none;
 }
 
@@ -196,10 +225,30 @@ h5
     margin-top: 5px;
     z-index: 20;
 }
+
 .adSectionLogo.seen
 {
     opacity: 1;
-    animation: fade-in 2s linear;
+    animation: fade-in 3s linear;
+}
+
+.adSectionOverlayFade
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--topLayer);
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+   
+}
+
+.adSectionOverlayFade.hidden
+{
+    opacity: 0;
+    animation: fade-out 1.5s linear;
 }
 
 .stickySection
@@ -251,6 +300,8 @@ h5
 .quatationBigText
 {
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 10%;
     left: 25%;
     font-weight: bold;
@@ -260,7 +311,21 @@ h5
 {
     position: absolute;
     top: 55%;
-    left: 65%;
+    left: 60%;
+    width: 100%;
+    height: fit-content;
+}
+
+.quotationQuotedPeopleText h3
+{
+    color: goldenrod;
+}
+
+.quotationQuotedPeopleTaskText
+{
+    position: absolute;
+    top: 70%;
+    left: 60%;
     width: 100%;
     height: fit-content;
 }
@@ -269,7 +334,7 @@ h5
 {
     position:absolute;
     top: 10%;
-    left: 40%;
+    left: 43%;
     width: 75%;
     height: 100%;
     text-align: left;
@@ -286,12 +351,22 @@ h5
     border-left: solid;
     border-top: solid;
     border-bottom: solid;
-    border-color: gold;
+   
     left: 20%;
     bottom: 0;
     width: 80%;
     height: 100%;
     transform-origin: left bottom;
+}
+
+.borderGold
+{
+    border-color: gold;
+}
+
+.borderLachs
+{
+    border-color: bisque;
 }
 
 .quotationBorder.seen{
@@ -356,13 +431,14 @@ h5
     height: 100%;
     bottom: 0;
     opacity: 0;
+    text-align: justify;
    
 }
 
 .storyElementCenteredLeftAllignedText
 {
     position: absolute;
-    text-align: left;
+    
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -372,7 +448,7 @@ h5
 
 .storyElementMultiElementContainer
 {
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -380,20 +456,43 @@ h5
     height: fit-content;
     width: 75vw;
     grid-template-columns: 50% 50%;
-    text-align: right;
     grid-template-rows: 100%;
+}
+
+.storyElementMultiElementContainerRightCenteredContainer
+{
+    position: absolute;
+    left: 55%;
+    top: 50%;
+    transform: translate(0, -45%);
+}
+
+.storyElementMultiElementContainerLeftCenteredContainer
+{
+    position: absolute;
+    right: 0;
+    top: 45%;
+    transform: translate(0, -45%);
+}
+
+.storyElementMultiElementContainerVideo
+{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .storyElementMultiElementContainerAllignTextLeft
 {
     text-align: left;
-    margin-left: 20px;
+    margin-left: 40px;
 }
 
 .storyElementMultiElementContainerAllignTextRight
 {
+    position: relative;
     text-align: right;
-    margin-right: 20px;
+    margin-right: 40px;
 }
 
 .storyElement div img
@@ -508,6 +607,18 @@ h5
     100%
     {
         width: 75%;
+    }
+}
+
+@keyframes fade-out
+{
+    0%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
     }
 }
 
