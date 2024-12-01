@@ -46,6 +46,16 @@ module.exports = {
           }
         ]
 
+      },
+      {
+        test: /\.(woff|woff2|ttf|otf)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: '[name].[ext]',  // Use name and hash for unique filenames
+            outputPath: 'assets/',
+          }
+        },
       }
     ]
   },

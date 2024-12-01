@@ -35,7 +35,6 @@ function showCarouselElement(index: number, direction: number, carousel: HTMLEle
     }
 
     for(var i = 0; i < carousel.children.length; i++){
-        console.log(i);
         if(i != index){
             carousel.children[i].classList.remove("shown");
            

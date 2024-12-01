@@ -7,17 +7,32 @@
     --bottomLayer: 1;
     --midLayer: 2;
     --topLayer: 3
-
 }
 
 html
 {
     overflow-x: hidden;
-    scroll-behavior: smooth;
     background-color: black;
-    text-rendering: optimizeLegibility;
     font-size: 16px;
 }
+
+body
+{
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "Signika";
+    src: url("../assets/Wavy.otf") format('otf') !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.signika
+{
+    font-family: "Signika";
+}
+
 p, h1,h2,h3,h4, h5
 {
     margin: 0;
@@ -27,6 +42,7 @@ p, h1,h2,h3,h4, h5
 h1,h2
 {
     font-size: var(--headerSize);
+    font-weight: bold;
 }
 
 h3
@@ -36,11 +52,6 @@ h3
 h5
 {
     font-size: var(--subHeaderSize);
-}
-
-h1,h2
-{
-    font-weight: bold;
 }
 
 .navigationMenu
@@ -128,6 +139,7 @@ h1,h2
 .navigationMenuLink a
 {
     color: white;
+    font-family: "Signika";
     text-decoration: none;
 }
 
