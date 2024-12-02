@@ -3,6 +3,7 @@ import './assets/BoxRender.mp4';
 import './assets/Design_Days.mp4'
 import './assets/Design_District.mp4'
 import './assets/Konzerte_mini.mp4'
+import './assets/Box_DONE_02.mp4'
 
 //image imports
 import './assets/SaxophoneGuy.jpg';
@@ -62,11 +63,17 @@ import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
-import './assets/Home-Button.png'
-import './assets/DesignDistrict_Logo_gelb.png'
-import './assets/VIP_mini.mp4'
-import './assets/Deluxe_mini.mp4'
-import './assets/KACHING-Animation_70-Mio-Kontaktchancen_GIF_01.gif'
+import './assets/Home-Button.png';
+import './assets/DesignDistrict_Logo_gelb.png';
+import './assets/VIP_mini.mp4';
+import './assets/Deluxe_mini.mp4';
+import './assets/KACHING-Animation_70-Mio-Kontaktchancen_GIF_01.gif';
+import './assets/DesignDays_Logo_turkis-wei.png';
+import './assets/DesignDistrict_Logo_schwarz-gelb.png';
+import './assets/DesignDistrict_Logo_schwarz.png';
+import './assets/Logos_DesignDeluxe.png';
+import './assets/Uhr_Animation_3-Tage-Designvielfalt_GIF_03.gif';
+import './assets/DDays-DDistrict-Switch_Animation_GIF_01.gif'
 
 
 
