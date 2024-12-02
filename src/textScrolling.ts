@@ -11,15 +11,6 @@ var currentDirection = 0;
 var lastScrollY = 0;
 var currentScrollY = 0;
 
-function isElementVisible(element: HTMLElement) {
-    const rect = element.getBoundingClientRect();
-    
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth))
-};
 
 function showCarouselElement(index: number, direction: number, carousel: HTMLElement){
    
@@ -45,9 +36,6 @@ function showCarouselElement(index: number, direction: number, carousel: HTMLEle
         }
        
     }
-   
-    
-
 }
 
 function hideCarouselElement(index: number, carousel: HTMLElement)

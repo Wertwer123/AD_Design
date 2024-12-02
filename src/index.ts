@@ -65,6 +65,9 @@ import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Home-Button.png'
 import './assets/DesignDistrict_Logo_gelb.png'
 import './assets/VIP_mini.mp4'
+import './assets/Deluxe_mini.mp4'
+import './assets/KACHING-Animation_70-Mio-Kontaktchancen_GIF_01.gif'
+
 
 
 //js file imports
