@@ -37,18 +37,24 @@ body
     font-variation-settings: "GRAD" 0;
 }
 
-.actorRegular 
+.signikaRegularSemibold 
 {
-    font-family: "Actor", sans-serif;
-    font-weight: 400;
+    font-family: "Signika", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
+    font-variation-settings: "GRAD" 0;
 }
 
-.dmSerifDisplayRegular 
+.questaGrande 
 {
-    font-family: "DM Serif Display", serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "questa-grande",serif; 
+}
+
+.questaGrandeBold
+{
+    font-family: "questa-grande",serif;
+    font-weight: bold;
 }
   
 p,a,h1,h2,h3,h4,h5
@@ -110,48 +116,53 @@ p
         line-height: 1.4;
       }
       
-      h5 {
-        font-size: 1vw; /* Min: 10px, Pref: 1.5% of viewport, Max: 16px */
-        line-height: 1.5;
+      @media (orientation: portrait){
+        p 
+        {
+            font-size: 15px; /* Min: 14px, Pref: 2.5% of viewport, Max: 17.6px */
+            line-height: 1.6;
+            font-weight: lighter; /* Ensure readability */
+            margin: 0.5em 0;  /* Add spacing for better flow */
+        }
       }
-    p 
-    {
-        font-size: 15px; /* Min: 14px, Pref: 2.5% of viewport, Max: 17.6px */
-        line-height: 1.6; /* Ensure readability */
-        margin: 0.5em 0;  /* Add spacing for better flow */
-    }
+      @media (orientation: landscape){
+        p 
+        {
+            font-size: 12px; /* Min: 14px, Pref: 2.5% of viewport, Max: 17.6px */
+        }
+      }
 }
 
 @media only screen and (max-width: 734px)and (max-width:734px) 
 {
     h1,h2 {
-        font-size: 20px; /* Min: 18px, Pref: 2.5% of viewport, Max: 32px */
+        font-size: 30px; /* Min: 18px, Pref: 2.5% of viewport, Max: 32px */
         line-height: 1.3;
-        font-weight: bold;
       }
       
       h3 {
-        font-size: 10px; /* Min: 14px, Pref: 2% of viewport, Max: 24px */
+        font-size: 16px; /* Min: 14px, Pref: 2% of viewport, Max: 24px */
         line-height: 1.4;
-        font-weight: 100;
       }
       
       h4 {
-        font-size: 9px; /* Min: 12px, Pref: 1.75% of viewport, Max: 20px */
+        font-size: 14px; /* Min: 12px, Pref: 1.75% of viewport, Max: 20px */
         line-height: 1.4;
       }
-      
-      h5 {
-        font-size: 1vw; /* Min: 10px, Pref: 1.5% of viewport, Max: 16px */
-        line-height: 1.5;
+      @media (orientation: portrait){
+        p 
+        {
+            font-size: 14px; /* Min: 14px, Pref: 2.5% of viewport, Max: 17.6px */
+            line-height: 1.8;
+            margin: 0.5em 0;  /* Add spacing for better flow */
+        }
       }
-    p 
-    {
-        font-size: 8px; /* Min: 14px, Pref: 2.5% of viewport, Max: 17.6px */
-        line-height: 1.6; /* Ensure readability */
-        margin: 0.5em 0;  /* Add spacing for better flow */
-    }
-  
+      @media (orientation: landscape){
+        p 
+        {
+            font-size: 8px; /* Min: 14px, Pref: 2.5% of viewport, Max: 17.6px */
+        }
+      }
 }
 
 .imagePopUpOverlay
@@ -192,7 +203,6 @@ p
     z-index: var(--topLayer);
     right: 0;
     bottom: 2%;
-    right: -5%;
     width: var(--p-width);
     height: var(--p-height);
     border: solid;
@@ -250,7 +260,7 @@ p
 
 .navigationMenuIcon
 {
-    width: 5%;
+    width: 10px;
     height: 50%;
     margin-left: 10px;
 }
@@ -341,7 +351,7 @@ p
     opacity: 0;
     width: 10%;
     height: 100%;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 4%;
     margin-right: 50px;
     z-index: 20;
@@ -369,7 +379,7 @@ p
 .adSectionOverlayFade.hidden
 {
     opacity: 0;
-    animation: fade-out 1.5s linear;
+    animation: fade-out 3.5s linear;
 }
 
 .stickySection
@@ -404,7 +414,6 @@ p
     z-index: var(--midLayer);
     width: 100%;
     height: fit-content;
-    transform: translate(0%, 20%);
     margin-bottom: 5%;
 }
 
@@ -457,7 +466,7 @@ p
 {
     position:absolute;
     top: 10%;
-    left: 53%;
+    left: 50%;
     width: 75%;
     height: 100%;
     text-align: left;
@@ -466,9 +475,9 @@ p
 .quotationBorder
 {
     position: absolute;
-    border-left: solid;
-    border-top: solid;
-    border-bottom: solid;
+    border-left: 8px solid;
+    border-top: 8px solid;
+    border-bottom: 8px solid;
     left: 20%;
     bottom: 0;
     width: 90%;
@@ -803,6 +812,11 @@ p
     height: 80%;
 }
 
+.removableBreakLine
+{
+    content: '\A';
+}
+
 @media  screen and (max-width: 1068px)and (max-width:1068px) {
 
     @media (orientation: portrait) {
@@ -816,15 +830,34 @@ p
             grid-row: 2;
             text-align: center;
             margin-right: 0px;
+            margin-top: 10%;
         }
         .storyElementMultiElementContainerAllignTextLeft
         {
-        text-align: center;
-        margin-left: 0px;
+            text-align: center;
+            margin-left: 0px;
+            margin-top: 10%;
         }
         .storyElement div
         {
             height: 100%;
+        }
+        .storySlideShow
+        {
+            bottom: 20%;
+        }
+        .sectionHeader
+        {
+            top:5%;
+            flex-direction: column;
+        }
+        .sectionHeaderText
+        {
+            margin-left: 10%;
+        }
+        .removableBreakLine
+        {
+            content: ' ';
         }
     }
     @media (orientation: landscape){
@@ -850,7 +883,7 @@ p
     .navigationMenu
     {
         --p-width: 250px;
-        --p-height: 100px;
+        --p-height: 160px;
     }
     .navigationMenuLink
     {
@@ -883,7 +916,7 @@ p
     .navigationMenu
     {
         --p-width: 150px;
-        --p-height: 100px;
+        --p-height: 140px;
     }
     .navigationMenuLink
     {
