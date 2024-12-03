@@ -17,7 +17,7 @@
 
 html
 {
-    overflow-x: hidden;
+    
     background-color: black;
     font-size: 16px;
 }
@@ -25,6 +25,7 @@ html
 body
 {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .signikaRegular 
@@ -130,13 +131,13 @@ p
       }
       
       h3 {
-        font-size: 12px; /* Min: 14px, Pref: 2% of viewport, Max: 24px */
+        font-size: 10px; /* Min: 14px, Pref: 2% of viewport, Max: 24px */
         line-height: 1.4;
         font-weight: 100;
       }
       
       h4 {
-        font-size: 10px; /* Min: 12px, Pref: 1.75% of viewport, Max: 20px */
+        font-size: 9px; /* Min: 12px, Pref: 1.75% of viewport, Max: 20px */
         line-height: 1.4;
       }
       
@@ -151,6 +152,36 @@ p
         margin: 0.5em 0;  /* Add spacing for better flow */
     }
   
+}
+
+.imagePopUpOverlay
+{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    transform-origin: center center;
+    z-index: 1000;
+}
+.imagePopUpOverlay.open
+{
+    display: flex;
+    opacity: 1;
+    animation: scale-ToView-Port-Size 0.5s linear;
+}
+
+.imagePopUpOverlay img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .navigationMenu
@@ -407,7 +438,7 @@ p
 {
     position: absolute;
     top: 40%;
-    left: 60%;
+    left: 58%;
     width: 100%;
     height: fit-content;
 }
@@ -417,7 +448,7 @@ p
 {
     position: absolute;
     top: 45%;
-    left: 60%;
+    left: 58%;
     width: 100%;
     height: fit-content;
 }
@@ -426,7 +457,7 @@ p
 {
     position:absolute;
     top: 10%;
-    left: 50%;
+    left: 53%;
     width: 75%;
     height: 100%;
     text-align: left;
@@ -516,7 +547,7 @@ p
     left: 50%;
     transform: translate(-50%);
     width: 100vw;
-    height:50vh;
+    height:50%;
 }
 
 .storyElement
@@ -529,17 +560,22 @@ p
     bottom: 0;
     opacity: 0;
     text-align: justify;
+    align-items: center;
    
 }
 
 .storyElementCenteredLeftAllignedText
 {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     height: fit-content;
     width: fit-content;
+    align-items: center;
+    justify-content: center;
 }
 
 .storyElementMultiElementContainer
@@ -772,8 +808,8 @@ p
     @media (orientation: portrait) {
         .storyElementMultiElementContainer
         {
-        grid-template-rows: 50% 50%;
-        grid-template-columns: 100%;
+            grid-template-rows: 50% 50%;
+            grid-template-columns: 100%;
         }
         .storyElementMultiElementContainerAllignTextRight
         {
@@ -791,8 +827,12 @@ p
             height: 100%;
         }
     }
-
-    
+    @media (orientation: landscape){
+        .storySlideShow
+        {
+            bottom: 3%;
+        }
+    }
 }
 
 @media only screen and (max-width: 1068px)and (max-width:1068px) {
@@ -858,6 +898,20 @@ p
     {
         --p-width: 17px;
         --p-height: 17px;
+    }
+}
+
+@keyframes scale-ToView-Port-Size
+{
+    0%
+    {
+        width: 0vw;
+        height: 0vh;
+    }
+    100%
+    {
+        width: 100vw;
+        height: 100vh;
     }
 }
 

@@ -10,6 +10,10 @@ export class ScrollableSlideShow
     accumulatedScroll = 0.0;
     elementSize = 0;
     maxWidth = 0;
+    overlayImagePopUp:HTMLElement | null = null;
+    overlayImagePopUpImage:HTMLImageElement | null = null;
+    hasOpenedImage = false;
+    lockedScrollY = 0;
 
     constructor(slideShowElementName:string, direction:number){
         //Assuming all elements are of equal size
@@ -21,11 +25,55 @@ export class ScrollableSlideShow
            
             return;
         }
-       
+
+        this.hideAll();
+        this.overlayImagePopUp = document.querySelector(".imagePopUpOverlay");
+        this.overlayImagePopUpImage = document.querySelector("#overlayImg");
+
+        this.overlayImagePopUp?.addEventListener("click", () =>{
+            this.hideOverlay();
+        })
+
+        for(var i = 0; i < this.slideShowElement.childElementCount; i++){
+            var pictureElement = this.slideShowElement.children[i] as HTMLPictureElement;
+            var images = pictureElement.querySelectorAll("img");
+
+            images.forEach((img) => {
+                img.addEventListener("click", () =>{
+                    this.showOverlayImageClick(img);
+                    this.hasOpenedImage = true;
+                    this.lockedScrollY = window.scrollY;
+                    document.body.style.overflowY = "hidden";
+                })
+            })
+        }
     }
 
-    public setVisible(isVisible:boolean){
-        this.isVisible = isVisible;
+    public showOverlayImageClick(image: HTMLImageElement) {
+        
+        this.overlayImagePopUp?.classList.add("open");
+
+        if(this.overlayImagePopUpImage){
+            console.log("set img");
+            this.overlayImagePopUpImage.src = image.src;
+        }
+    }
+    
+    public hideOverlay() {
+        this.overlayImagePopUp?.classList.remove("open");
+        this.hasOpenedImage = false;
+        document.body.style.overflowY = "";
+    }
+
+    public hideAll(){
+
+        if(!this.slideShowElement){
+            return;
+        }
+
+        for(var i = 0; i < this.slideShowElement.children.length; i++){
+            this.slideShowElement.children[i].classList.add("hidden");
+        }
     }
 
     public scrollElement(direction:number, scrollValue:number){
