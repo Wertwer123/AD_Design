@@ -423,6 +423,7 @@ p
 
 .quotationContainer
 {
+    position: relative;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -441,6 +442,15 @@ p
     top: 10%;
     left: 13%;
     font-weight: bold;
+    width: 300px;
+    height: 300px;
+}
+
+.quatationBigText img
+{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .quotationQuotedPeopleText
@@ -673,9 +683,17 @@ p
     border: solid;
     border-radius: 10%;
     --p-width: 345px;
-    --p-height: 195px
+    --p-height: 195px;
+    transition: all;
+    transition-duration: 0.1s;
    
 }
+
+.trioSlideShow div picture img:hover
+{
+    transform: scale(1.1);
+}
+
 
 .statsShowcase
 {
@@ -734,8 +752,8 @@ p
     top: 55%;
     width: var(--p-width);
     height: var(--p-heigth);
-    --p-width: 155px;
-    --p-heigth: 77px;
+    --p-width: 310px;
+    --p-heigth: 144px;
 }
 
 .deluxeLogo img
@@ -870,6 +888,10 @@ p
             bottom: 3%;
         }
     }
+    .deluxeLogo{
+        --p-width: 207px;
+        --p-heigth: 96px;
+    }
 }
 
 @media only screen and (max-width: 1068px)and (max-width:1068px) {
@@ -902,6 +924,15 @@ p
     {
         --p-width: 35px;
         --p-height: 35px;
+    }
+    .quatationBigText
+    {
+        width: 200px;
+        height: 200px;
+    }
+    .deluxeLogo{
+        --p-width: 105px;
+        --p-heigth: 49px;
     }
 }
 
@@ -951,6 +982,11 @@ p
     .doubleDescriptionText h4
     {
         font-size: 8px;
+    }
+    .quatationBigText
+    {
+        width: 100px;
+        height: 100px;
     }
 }
 
@@ -1007,6 +1043,18 @@ p
     100%
     {
         opacity: 1;
+    }
+}
+/*animation for image hover*/
+@keyframes fade-to-selected-size
+{
+    0%
+    {
+        transform: scale(1);
+    }
+    100%
+    {
+        transform: scale(1.1);
     }
 }
 

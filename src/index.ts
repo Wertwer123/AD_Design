@@ -1,9 +1,15 @@
 //video imports
-import './assets/BoxRender.mp4';
 import './assets/Design_Days.mp4'
 import './assets/Design_District.mp4'
 import './assets/Konzerte_mini.mp4'
 import './assets/Box_DONE_02.mp4'
+import './assets/VIP_mini.mp4';
+import './assets/Deluxe_mini.mp4';
+import './assets/04_Slideshow_Beklebung.mp4'
+import './assets/05_Slideshow_Sideevents.mp4'
+import './assets/05_Slideshow_Mobilität.mp4'
+import './assets/06_Slideshow_Wein&Kulinarik.mp4'
+
 
 //image imports
 import './assets/SaxophoneGuy.jpg';
@@ -65,15 +71,41 @@ import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Home-Button.png';
 import './assets/DesignDistrict_Logo_gelb.png';
-import './assets/VIP_mini.mp4';
-import './assets/Deluxe_mini.mp4';
-import './assets/KACHING-Animation_70-Mio-Kontaktchancen_GIF_01.gif';
+
 import './assets/DesignDays_Logo_turkis-wei.png';
 import './assets/DesignDistrict_Logo_schwarz-gelb.png';
 import './assets/DesignDistrict_Logo_schwarz.png';
 import './assets/Logos_DesignDeluxe.png';
-import './assets/Uhr_Animation_3-Tage-Designvielfalt_GIF_03.gif';
-import './assets/DDays-DDistrict-Switch_Animation_GIF_01.gif'
+
+//gifs
+import './assets/01_Ka-Ching_DesignDays_GIF.gif';
+import './assets/01_Uhr_Animation_3-Tage-Designvielfalt_GIF_03.gif';
+import './assets/02_Besucher-Zahlen_Animation_24500-Besucher_GIF_03.gif';
+import './assets/02_Besucher-Zahlen_Animation_33000-Besucher_GIF_02.gif';
+import './assets/02_Ka-Ching_DesignDistrict_GIF.gif';
+import './assets/02_schreibmaschinen-Text_PREMIUM-MAGAZIN_GIF.gif';
+import './assets/03_Flaechen_Animation_7500m_GIF_03.gif';
+import './assets/03_Flaechen_Animation_15000m_GIF_02.gif';
+import './assets/03_Ka-Ching_DesignDELUXE_GIF.gif';
+import './assets/03_Schreibmaschinen-Text_WEBAUFTRITT_GIF.gif';
+import './assets/04_Musik-Beat_Animation_GIF_02.gif';
+import './assets/04_Schreibmaschinen-Text_NEWSLETTER_GIF.gif';
+import './assets/05_Schreibmaschinen-Text_SOCIAL-MEDIA_GIF.gif';
+import './assets/06_DeLuxe-Showcase-Switch_GIF_01.gif';
+import './assets/06_Ka-Ching_70Mio-Kontaktchancen_GIF.gif';
+import './assets/07_Ka-Ching_2-Ausgaben-pro-Jahr_GIF.gif';
+import './assets/07_Ka-Ching_2-Mio-Medienwert_GIF.gif';
+import './assets/08_Ka-Ching_51600-Magazinleser_GIF.gif';
+import './assets/08_Ka-Ching_260000-Websiteaufrufe_GIF.gif';
+import './assets/09_Ka-Ching_25400-Newsletterkontakte_GIF.gif';
+import './assets/09_Ka-Ching_55000_Besucher_GIF.gif';
+import './assets/10_DDays-DDistrict-Switch_Animation_04_GIF.gif';
+import './assets/10_Ka-Ching_8800-Follower_GIF.gif';
+import './assets/11_Design-braucht-Einen-Rahmen-EINE-COMMUNITY_Animation_GIF.gif';
+import './assets/07_Design-braucht-Einen-Rahmen_Animation_GIF.gif'
+
+
+
 
 
 
