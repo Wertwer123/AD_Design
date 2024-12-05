@@ -26,10 +26,17 @@ const onScroll = () =>
     }
 
     if(heroSectionVideo.duration > 0){
-        heroSectionVideo.currentTime = heroSectionVideo.duration * percentage;
+        heroSectionVideo.currentTime += 0.1;
     }
 }
 
 onScroll();
+
+async function func()
+{
+    while(true){
+        console.log("lol");
+    }
+}
 
 window.addEventListener('scroll', onScroll);

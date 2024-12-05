@@ -71,11 +71,14 @@ import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Design_District_2024_Opening_Maximilian_Lottmann-4.jpg';
 import './assets/Home-Button.png';
 import './assets/DesignDistrict_Logo_gelb.png';
-
 import './assets/DesignDays_Logo_turkis-wei.png';
 import './assets/DesignDistrict_Logo_schwarz-gelb.png';
 import './assets/DesignDistrict_Logo_schwarz.png';
 import './assets/Logos_DesignDeluxe.png';
+import './assets/youtubeIcon.png';
+import './assets/facebookIcon.png';
+import './assets/instagrammIcon.jpg';
+
 
 //gifs
 import './assets/01_Ka-Ching_DesignDays_GIF.gif';
